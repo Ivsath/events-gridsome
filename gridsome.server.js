@@ -36,6 +36,7 @@ module.exports = function (api) {
         duration: event.duration,
         thumbnail: event.image.formats.thumbnail.url,
         image: event.image.formats.small.url,
+        category: event.category.id,
       })
     }
   })
