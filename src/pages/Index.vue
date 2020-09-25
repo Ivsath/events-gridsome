@@ -24,7 +24,7 @@
               </v-img>
 
               <v-card-subtitle class="pb-0">
-                {{ edge.node.date }}
+                {{ formatDate(edge.node.date) }}
               </v-card-subtitle>
 
               <v-card-actions>
@@ -59,6 +59,8 @@ query {
 </page-query>
 
 <script>
+import { DateTime } from 'luxon'
+
 export default {
   metaInfo: {
     title: 'E-vents',
@@ -89,6 +91,9 @@ export default {
       this.events = this.$page.events.edges.filter(
         (event) => event.node.category === val,
       )
+    },
+    formatDate(date) {
+      return DateTime.fromISO(date).toFormat('MMMM d yyyy, h:mm a')
     },
   },
 }
