@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <v-app-bar app>
-      <v-toolbar-title>E-vents</v-toolbar-title>
+      <v-toolbar-title>
+        <g-link to="/">E-vents</g-link>
+      </v-toolbar-title>
       <v-text-field
         placeholder="Search"
         class="ml-8"
@@ -35,3 +37,10 @@ query {
   }
 }
 </static-query>
+
+<style scoped>
+.v-toolbar__title a {
+  text-decoration: none;
+  color: black;
+}
+</style>
