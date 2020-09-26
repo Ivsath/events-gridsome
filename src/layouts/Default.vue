@@ -16,7 +16,13 @@
       <v-btn>Create Event</v-btn>
     </v-app-bar>
     <v-main>
-      <slot />
+      <v-container>
+        <v-row justify="space-around">
+          <v-col sm="6">
+            <slot />
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>
