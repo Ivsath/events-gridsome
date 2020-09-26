@@ -24,11 +24,13 @@ module.exports = function (api) {
 
     const collection = actions.addCollection({
       typeName: 'Event',
+      path: '/events/:id',
     })
 
     for (const event of data) {
       collection.addNode({
         id: event.id,
+        path: '/events/' + event.id,
         title: event.title,
         description: event.description,
         price: event.price,
