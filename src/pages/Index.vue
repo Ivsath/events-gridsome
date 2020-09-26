@@ -25,7 +25,13 @@
         </v-card-subtitle>
 
         <v-card-actions>
-          <v-btn color="orange" text>More Info</v-btn>
+          <v-btn
+            @click="$router.push(`/events/${edge.node.id}`)"
+            color="orange"
+            text
+          >
+            More Info
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-row>
