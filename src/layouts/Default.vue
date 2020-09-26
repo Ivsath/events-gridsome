@@ -5,10 +5,13 @@
         <g-link to="/">E-vents</g-link>
       </v-toolbar-title>
       <v-text-field
+        v-model="searchText"
+        @click:clear="searchText = ''"
         placeholder="Search"
         class="ml-8"
         style="max-width: 350px"
         prepend-inner-icon="mdi-magnify"
+        clearable
         outlined
         rounded
         dense
@@ -21,7 +24,7 @@
       <v-container>
         <v-row justify="space-around">
           <v-col sm="6">
-            <slot />
+            <slot :searchText="searchText" />
           </v-col>
         </v-row>
       </v-container>
@@ -37,6 +40,16 @@ query {
   }
 }
 </static-query>
+
+<script>
+export default {
+  data() {
+    return {
+      searchText: '',
+    }
+  },
+}
+</script>
 
 <style scoped>
 .v-toolbar__title a {

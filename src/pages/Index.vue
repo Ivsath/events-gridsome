@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout v-slot="{ searchText }">
     <v-tabs v-model="tab" grow>
       <v-tab>All Events</v-tab>
       <v-tab>Live Music</v-tab>
@@ -7,7 +7,7 @@
     </v-tabs>
     <v-row class="justify-space-around">
       <v-card
-        v-for="edge in events"
+        v-for="edge in getEvents(searchText)"
         :key="edge.node.id"
         width="280"
         class="mt-5"
@@ -94,6 +94,11 @@ export default {
     },
     formatDate(date) {
       return DateTime.fromISO(date).toFormat('MMMM d yyyy, h:mm a')
+    },
+    getEvents(searchText) {
+      return this.events.filter((event) => {
+        return event.node.title.toLowerCase().includes(searchText.toLowerCase())
+      })
     },
   },
 }
